@@ -56,7 +56,6 @@ export const updateArticle = async (req, res) => {
 // Delete an article by ID
 export const deleteArticle = async (req, res) => {
   const articleId=req.params.id
-  console.log(articleId);
   try {
     const article = await Article.findByIdAndDelete(articleId);
     if (!article) {

@@ -45,7 +45,7 @@ app.use('/api/v1/admin', admin);
 app.use('/api/v1/articles', article);
 // app.use('/api/payments', paymentRoutes);
 app.use('/api/faqs', faqRoutes);
-app.use('/api/bookings', bookingRoutes);
+app.use('/api/v1/bookings', bookingRoutes);
 app.use('/api/legal', legalContentRoutes);
 
 

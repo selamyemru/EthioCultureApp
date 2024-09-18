@@ -4,6 +4,7 @@ import CulturalSite from '../models/CulturalSite.js';
 import Event from '../models/Event.js';
 import Media from '../models/Media.js';
 import User from '../models/User.js';
+import Booking from '../models/Booking.js';
 
 export const dashboard= async (req, res) => {
   try {
@@ -138,6 +139,32 @@ export const editCulturalSite = async (req, res) => {
     res.status(200).json(culturalSite);
   } catch (err) {
     res.status(500).json({ error: 'Error updating cultural site', details: err });
+  }
+};
+// Get  all bookings 
+export const getBookings = async (req, res) => {
+  try {
+   
+    const bookings = await Booking.find({})
+    res.json(bookings);
+  } catch (err) {
+    console.error('Error fetching bookings:', err);
+    res.status(500).json({ error: err.message });
+  }
+};
+// Delete a booking by ID
+export const deleteBookings = async (req, res) => {
+  const id  = req.params.id; 
+  try {
+    const deletedBooking = await Booking.findByIdAndDelete(id); 
+    if (!deletedBooking) {
+      return res.status(404).json({ error: 'Booking not found' }); 
+    }
+
+    res.json({ message: 'Booking deleted successfully', booking: deletedBooking }); 
+  } catch (err) {
+    console.error('Error deleting booking:', err);
+    res.status(500).json({ error: err.message }); 
   }
 };
 

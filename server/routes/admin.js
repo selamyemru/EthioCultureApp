@@ -9,7 +9,7 @@ import  {
   deleteArticle, editArticle,
   deleteMedia, editMedia,
   deleteUser, editUser,
-  deleteCulturalSite, editCulturalSite,
+  deleteCulturalSite, editCulturalSite
 } from '../controllers/admin.js';
 
 // Events
